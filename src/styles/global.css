@@ -1,0 +1,302 @@
+/* =========================
+   CSS RESET
+========================= */
+* {
+  box-sizing: border-box;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/* =========================
+   THEME VARIABLES
+========================= */
+:root {
+  --bg: #020617;
+  --bg-secondary: #0f172a;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --card: #020617;
+  --accent-1: #38bdf8;
+  --accent-2: #a78bfa;
+}
+
+[data-theme="light"] {
+  --bg: #f8fafc;
+  --bg-secondary: #ffffff;
+  --text: #020617;
+  --muted: #475569;
+  --card: #ffffff;
+}
+
+/* =========================
+   BASE STYLES
+========================= */
+body {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  background: linear-gradient(180deg, var(--bg), var(--bg-secondary));
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.hero {
+  padding: 4.5rem 1.5rem 3.5rem;
+  text-align: center;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.name-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+/* Gradient Name */
+.gradient-name {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0;
+  background: linear-gradient(
+    90deg,
+    var(--accent-1),
+    var(--accent-2)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Subtitle */
+.hero h2 {
+  margin-top: 0.75rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+/* Skills */
+.skills {
+  margin-top: 1.25rem;
+  font-size: 0.95rem;
+  color: var(--text);
+  opacity: 0.85;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+}
+
+.skills strong {
+  color: var(--accent-1);
+}
+
+
+/* =========================
+   LINKEDIN ICON
+========================= */
+.linkedin-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.linkedin-inline {
+  width: 26px;
+  height: 26px;
+  filter: invert(1);
+  opacity: 0.85;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.linkedin-inline:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Animated underline */
+.linkedin-link::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--accent-1),
+    var(--accent-2)
+  );
+  transition: width 0.25s ease;
+}
+
+.linkedin-link:hover::after {
+  width: 100%;
+}
+
+/* =========================
+   PROJECTS SECTION
+========================= */
+.projects {
+  padding: 3rem 1.5rem 4rem;
+  max-width: 1100px;
+  margin: auto;
+  animation: fadeUp 0.8s ease forwards;
+  animation-delay: 0.15s;
+}
+
+.projects h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* Grid */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* Card */
+.project-card {
+  background: var(--card);
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Image */
+.project-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+/* Content */
+.project-content {
+  padding: 1.2rem;
+}
+
+.project-content h3 {
+  margin: 0 0 0.35rem;
+}
+
+.project-content .date {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.project-content p {
+  margin-top: 0.75rem;
+  line-height: 1.5;
+  opacity: 0.9;
+}
+
+/* =========================
+   THEME TOGGLE WRAPPER
+========================= */
+.theme-toggle-wrapper {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  z-index: 10;
+}
+
+.theme-toggle-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* =========================
+   THEME SWITCH (SLIDE BUTTON)
+========================= */
+.theme-switch {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 46px;
+  height: 26px;
+  background: #1e293b;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s ease;
+  z-index: 10;
+}
+
+.theme-switch.light {
+  background: #e2e8f0;
+}
+
+/* Thumb */
+.switch-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.25s ease;
+}
+
+/* Slide right */
+.theme-switch.light .switch-thumb {
+  transform: translateX(20px);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (min-width: 768px) {
+  .gradient-name {
+    font-size: 3.6rem;
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .gradient-name {
+    font-size: 2.3rem;
+  }
+
+  .linkedin-inline {
+    width: 22px;
+    height: 22px;
+  }
+}
