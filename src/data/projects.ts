@@ -1,4 +1,12 @@
-export const projects = [
+export interface Project {
+  title: string;
+  image: string;
+  date: string;
+  description: string;
+  link?: string;
+}
+
+export const projects: Project[] = [
   {
     title: "AI-Driven Clinical Question Answering RAG model",
     image: "/project5.png",

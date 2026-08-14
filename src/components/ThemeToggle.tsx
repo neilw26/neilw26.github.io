@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { SunIcon, MoonIcon } from "./ThemeIcons"; // We'll define these
+import { SunIcon, MoonIcon } from "./ThemeIcons";
 
 export default function ThemeToggle() {
-  const [isLight, setIsLight] = useState(false);
+  const [isLight, setIsLight] = useState<boolean>(false);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");

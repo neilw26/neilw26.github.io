@@ -1,4 +1,6 @@
-export const SunIcon = () => (
+import type { JSX } from "react";
+
+export const SunIcon = (): JSX.Element => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="14"
@@ -10,7 +12,7 @@ export const SunIcon = () => (
   </svg>
 );
 
-export const MoonIcon = () => (
+export const MoonIcon = (): JSX.Element => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="14"
